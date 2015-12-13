@@ -65,8 +65,7 @@ Name: "{group}\Edit {#AppName} Service"; Filename: "{app}\Installer\nssm.exe"; P
 
 [Run]
 ;SickRage
-Filename: "{app}\Git\cmd\git.exe"; Parameters: "clone {#AppRepoUrl} {app}\{#AppName}"; StatusMsg: "Installing {#AppName}..."
-;Filename: "xcopy.exe"; Parameters: """C:\SRinstaller\SickRage"" ""{app}\{#AppName}"" /E /I /H /Y"; Flags: runminimized; StatusMsg: "Installing {#AppName}..."
+Filename: "{app}\Git\cmd\git.exe"; Parameters: "clone {param:REPO|{#AppRepoUrl}} {app}\{#AppName}"; StatusMsg: "Installing {#AppName}..."
 ;Service
 Filename: "{app}\Installer\nssm.exe"; Parameters: "start ""{#AppServiceName}"""; Flags: runhidden; BeforeInstall: CreateService; StatusMsg: "Starting {#AppName} service..."
 ;Open
